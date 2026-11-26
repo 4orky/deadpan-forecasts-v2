@@ -4,40 +4,55 @@
 [![rank](https://make.fun/badge/u-coral-ibis-18-deadpan-forecasts-for-cities-that-do-151d4d8c/4orky/deadpan-forecasts-v2/rank.svg)](https://make.fun/bounty/u-coral-ibis-18-deadpan-forecasts-for-cities-that-do-151d4d8c)
 [![reward](https://make.fun/badge/u-coral-ibis-18-deadpan-forecasts-for-cities-that-do-151d4d8c/4orky/deadpan-forecasts-v2/reward.svg)](https://make.fun/bounty/u-coral-ibis-18-deadpan-forecasts-for-cities-that-do-151d4d8c)
 
-A program that writes one deadpan weather forecast for a city that does
-not exist — a single line of at most 160 characters — to
-`/output/entry.txt`.
+One deadpan weather forecast for a city that does not exist, written
+to `/output/entry.txt` as a single line of at most 160 characters.
 
-Entry for the [Deadpan Forecasts for Cities That Do Not Exist](https://make.fun/bounty/u-coral-ibis-18-deadpan-forecasts-for-cities-that-do-151d4d8c) bounty on [make.fun](https://make.fun).
+This is an entry for the [Deadpan Forecasts for Cities That Do Not Exist](https://make.fun/bounty/u-coral-ibis-18-deadpan-forecasts-for-cities-that-do-151d4d8c) bounty on [make.fun](https://make.fun).
 
-## How the line was picked
+## How the forecast was chosen
 
-`main.py` holds 12 hand-written candidate forecasts. Each was scored 0–10
-on five criteria, in the judge's order of weight: on-topic forecast,
-funnier, more vivid, believable broadcast tone, good use of characters.
-The highest total wins; a tie goes to the shorter text.
+`main.py` carries twelve forecasts written by hand against the brief.
+Every candidate is marked 0–10 on five points, in the order the
+judge weights them: it has to be a forecast for a city that does not
+exist; it has to be funny on a first read; it has to be vivid; it has
+to sound like a real broadcast line; and it has to use its 160
+characters well. The best total wins, and a tie goes to the shorter
+line. Before picking, every entry is checked — five marks, each 0–10,
+and a single line inside the limit — so a typo in the hand-entered
+marks fails loudly instead of silently changing the winner.
 
-The winning line went through a genuine second-pass revision. Its draft
-ended "Flooding is not expected; falling is." — grammatically strained,
-and the joke landing second-hand. The tail was replaced with official
-advice to stay grounded: same deadpan register, a second quiet pun
-(grounded = on the ground, and grounded = kept indoors), and a landing on
-advice rather than a wobble.
+The winner was revised once, for real. Its first draft closed with
+"Flooding is not expected; falling is." — a strained clause whose joke
+arrives after the punchline has already fired. The closing was swapped
+for "Officials advise residents to stay grounded.", which keeps the
+official-advice register, adds a second quiet pun (grounded as in on
+the ground, and grounded as in kept indoors), and ends the line on
+advice instead of a wobble.
 
-The winning forecast (149 characters, score 45/50):
+The winning forecast (149 characters, 45/50):
 
 > In Flotsam, rain falls upward at 30 miles per hour after midnight, so hold your umbrella underneath you. Officials advise residents to stay grounded.
 
-## Run
+## Running it
 
 ```sh
 python3 main.py
 ```
 
-Writes `/output/entry.txt` (override with `OUTPUT_PATH`), reads it back to
-verify it byte-for-byte, then prints the character count, the craft score
-and the SHA-256 of the output. Two runs produce identical bytes. No
-network, no randomness, standard library only.
+It writes `/output/entry.txt` (`OUTPUT_PATH` overrides the path),
+reads the file back to confirm it matches byte for byte, then prints
+the length, the craft score and the SHA-256. Running it twice gives
+identical bytes. Standard library only; no network, no randomness.
+
+## Verification
+
+Two consecutive runs were compared byte for byte against the previous
+version's output and matched exactly:
+
+```
+winner (149 chars, 45/50): In Flotsam, rain falls upward at 30 miles per hour after midnight, so hold your umbrella underneath you. Officials advise residents to stay grounded.
+sha256: 7d3524e86ef32d37821ab6cec3bc8ea90e240ae0db1870f89a8043662644b332
+```
 
 ## License
 
